@@ -1,1 +1,0 @@
-import{R as e}from"./app.ec9fc65d.js";const s=({title:a,icon:t})=>e.createElement("div",{className:"card-header"},e.createElement("span",{className:"font-weight-bold"},e.createElement("i",{className:t})," ",a));export{s as A};

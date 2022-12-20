@@ -6,11 +6,13 @@ import { AppHeaderCard, InputApp } from "../../../components";
 import { LayoutApp } from "../../../layouts";
 
 const Create = ({ last_product_id, categories, errors }) => {
+  console.log(last_product_id);
+
   const [form, setForm] = useState(() => {
     return {
       image: "",
       barcode: `PR-${Number(last_product_id) + 1}`,
-      category_id: categories[0].id,
+      category_id: categories[0]?.id,
       title: "",
       description: "",
       stock: 0,

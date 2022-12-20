@@ -26,7 +26,7 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all();
-        $last_product_id = DB::table('products')->latest()->first()->id;
+        $last_product_id = DB::table('products')->latest()->first()->id ?? 0;
 
         if (!$last_product_id) {
             $last_product_id = 0;

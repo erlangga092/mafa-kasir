@@ -1,0 +1,12 @@
+export { default as DashboardSVG } from "./DashboardSVG";
+export { default as CategorySVG } from "./CategorySVG";
+export { default as ProductSVG } from "./ProductSVG";
+export { default as CustomerSVG } from "./CustomerSVG";
+export { default as TransactionSVG } from "./TransactionSVG";
+export { default as SalesSVG } from "./SalesSVG";
+export { default as ProfitSVG } from "./ProfitSVG";
+export { default as RoleSVG } from "./RoleSVG";
+export { default as PermissionSVG } from "./PermissionSVG";
+export { default as UserSVG } from "./UserSVG";
+export { default as HamburgerSVG } from "./HamburgerSVG";
+export { default as LogoutSVG } from "./LogoutSVG";

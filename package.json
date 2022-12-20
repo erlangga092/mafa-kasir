@@ -1,0 +1,27 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "axios": "^1.1.2",
+        "laravel-vite-plugin": "^0.6.0",
+        "lodash": "^4.17.19",
+        "postcss": "^8.1.14",
+        "vite": "^3.0.0"
+    },
+    "dependencies": {
+        "@inertiajs/inertia": "^0.11.1",
+        "@inertiajs/inertia-react": "^0.8.1",
+        "@inertiajs/progress": "^0.2.7",
+        "chart.js": "^4.1.1",
+        "react": "^18.2.0",
+        "react-barcode": "^1.4.6",
+        "react-chartjs-2": "^5.0.1",
+        "react-dom": "^18.2.0",
+        "react-multi-select-component": "^4.3.4",
+        "sweetalert2": "^11.6.11",
+        "use-state-with-callback": "^3.0.2"
+    }
+}

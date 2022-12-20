@@ -5,11 +5,11 @@ import Swal from "sweetalert2";
 import { AppHeaderCard, InputApp } from "../../../components";
 import { LayoutApp } from "../../../layouts";
 
-const Create = ({ last_product, categories, errors }) => {
+const Create = ({ last_product_id, categories, errors }) => {
   const [form, setForm] = useState(() => {
     return {
       image: "",
-      barcode: `PR-${Number(last_product.id) + 1}`,
+      barcode: `PR-${Number(last_product_id) + 1}`,
       category_id: categories[0].id,
       title: "",
       description: "",

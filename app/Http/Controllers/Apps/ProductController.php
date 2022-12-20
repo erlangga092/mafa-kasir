@@ -26,11 +26,15 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all();
-        $last_product = DB::table('products')->latest()->first();
+        $last_product_id = DB::table('products')->latest()->first()->id;
+
+        if (!$last_product_id) {
+            $last_product_id = 0;
+        }
 
         return Inertia::render('Apps/Product/Create', [
             'categories' => $categories,
-            'last_product' => $last_product
+            'last_product_id' => $last_product_id
         ]);
     }
 

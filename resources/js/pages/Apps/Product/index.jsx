@@ -79,53 +79,55 @@ const Product = ({ products }) => {
                       onReset={onReset}
                       addLink="/apps/products/create"
                     />
-                    <table className="table table-bordered table-hover">
-                      <thead>
-                        <tr>
-                          <th scope="col">Barcode</th>
-                          <th scope="col">Title</th>
-                          <th scope="col">Buy Price</th>
-                          <th scope="col">Sell Price</th>
-                          <th scope="col">Stock</th>
-                          <th scope="col" style={{ width: "20%" }}>
-                            Actions
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {products?.data?.map((product) => (
-                          <tr key={product.id}>
-                            <td className="text-center">
-                              <Barcode
-                                value={product.barcode}
-                                width={1}
-                                height={20}
-                                lineColor="#000"
-                                format="CODE39"
-                              />
-                            </td>
-                            <td>{product.title}</td>
-                            <td>{formatPrice(product.buy_price)}</td>
-                            <td>{formatPrice(product.sell_price)}</td>
-                            <td>{product.stock}</td>
-                            <td className="text-center">
-                              <Link
-                                href={`/apps/products/${product.id}/edit`}
-                                className="btn btn-success btn-sm me-2"
-                              >
-                                <i className="fa fa-pencil-alt me-1"></i> EDIT
-                              </Link>
-                              <button
-                                className="btn btn-danger btn-sm"
-                                onClick={(e) => onDestroy(e, product.id)}
-                              >
-                                <i className="fa fa-trash"></i> DELETE
-                              </button>
-                            </td>
+                    <div className="table-responsive">
+                      <table className="table table-bordered table-hover">
+                        <thead>
+                          <tr>
+                            <th scope="col">Barcode</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Buy Price</th>
+                            <th scope="col">Sell Price</th>
+                            <th scope="col">Stock</th>
+                            <th scope="col" style={{ width: "20%" }}>
+                              Actions
+                            </th>
                           </tr>
-                        ))}
-                      </tbody>
-                    </table>
+                        </thead>
+                        <tbody>
+                          {products?.data?.map((product) => (
+                            <tr key={product.id}>
+                              <td className="text-center">
+                                <Barcode
+                                  value={product.barcode}
+                                  width={1}
+                                  height={20}
+                                  lineColor="#000"
+                                  format="CODE39"
+                                />
+                              </td>
+                              <td>{product.title}</td>
+                              <td>{formatPrice(product.buy_price)}</td>
+                              <td>{formatPrice(product.sell_price)}</td>
+                              <td>{product.stock}</td>
+                              <td className="text-center">
+                                <Link
+                                  href={`/apps/products/${product.id}/edit`}
+                                  className="btn btn-success btn-sm me-2"
+                                >
+                                  <i className="fa fa-pencil-alt me-1"></i> EDIT
+                                </Link>
+                                <button
+                                  className="btn btn-danger btn-sm"
+                                  onClick={(e) => onDestroy(e, product.id)}
+                                >
+                                  <i className="fa fa-trash"></i> DELETE
+                                </button>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
                     <Pagination links={products.links} />
                   </div>
                 </div>

@@ -70,45 +70,47 @@ const Category = ({ categories }) => {
                       onReset={onReset}
                       addLink="/apps/categories/create"
                     />
-                    <table className="table table-bordered table-hover">
-                      <thead>
-                        <tr>
-                          <th scope="col">Name</th>
-                          <th scope="col">Image</th>
-                          <th scope="col" style={{ width: "20%" }}>
-                            Actions
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {categories?.data?.map((category) => (
-                          <tr key={category.id}>
-                            <td>{category.name}</td>
-                            <td className="text-center">
-                              <img
-                                src={category.image}
-                                style={{ height: "40px" }}
-                                alt=""
-                              />
-                            </td>
-                            <td className="text-center">
-                              <Link
-                                href={`/apps/categories/${category.id}/edit`}
-                                className="btn btn-success btn-sm me-2"
-                              >
-                                <i className="fa fa-pencil-alt me-1"></i> EDIT
-                              </Link>
-                              <button
-                                className="btn btn-danger btn-sm"
-                                onClick={(e) => onDestroy(e, category.id)}
-                              >
-                                <i className="fa fa-trash"></i> DELETE
-                              </button>
-                            </td>
+                    <div className="table-responsive">
+                      <table className="table table-bordered table-hover">
+                        <thead>
+                          <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Image</th>
+                            <th scope="col" style={{ width: "20%" }}>
+                              Actions
+                            </th>
                           </tr>
-                        ))}
-                      </tbody>
-                    </table>
+                        </thead>
+                        <tbody>
+                          {categories?.data?.map((category) => (
+                            <tr key={category.id}>
+                              <td>{category.name}</td>
+                              <td className="text-center">
+                                <img
+                                  src={category.image}
+                                  style={{ height: "40px" }}
+                                  alt=""
+                                />
+                              </td>
+                              <td className="text-center">
+                                <Link
+                                  href={`/apps/categories/${category.id}/edit`}
+                                  className="btn btn-success btn-sm me-2"
+                                >
+                                  <i className="fa fa-pencil-alt me-1"></i> EDIT
+                                </Link>
+                                <button
+                                  className="btn btn-danger btn-sm"
+                                  onClick={(e) => onDestroy(e, category.id)}
+                                >
+                                  <i className="fa fa-trash"></i> DELETE
+                                </button>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
                     <Pagination links={categories.links} />
                   </div>
                 </div>

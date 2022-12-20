@@ -69,41 +69,43 @@ const Permission = ({ customers }) => {
                       addLink="/apps/customers/create"
                       value={data.search}
                     />
-                    <table className="table table-bordered table-hover">
-                      <thead>
-                        <tr>
-                          <th scope="col">Full Name</th>
-                          <th scope="col">No. Telp</th>
-                          <th scope="col">Address</th>
-                          <th scope="col" style={{ width: "20%" }}>
-                            Actions
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {customers?.data?.map((customer) => (
-                          <tr key={customer.id}>
-                            <td>{customer.name}</td>
-                            <td>{customer.no_telp}</td>
-                            <td>{customer.address}</td>
-                            <td className="text-center">
-                              <Link
-                                href={`/apps/customers/${customer.id}/edit`}
-                                className="btn btn-success btn-sm me-2"
-                              >
-                                <i className="fa fa-pencil-alt me-1"></i> EDIT
-                              </Link>
-                              <button
-                                className="btn btn-danger btn-sm"
-                                onClick={(e) => onDestroy(e, customer.id)}
-                              >
-                                <i className="fa fa-trash"></i> DELETE
-                              </button>
-                            </td>
+                    <div className="table-responsive">
+                      <table className="table table-bordered table-hover">
+                        <thead>
+                          <tr>
+                            <th scope="col">Full Name</th>
+                            <th scope="col">No. Telp</th>
+                            <th scope="col">Address</th>
+                            <th scope="col" style={{ width: "20%" }}>
+                              Actions
+                            </th>
                           </tr>
-                        ))}
-                      </tbody>
-                    </table>
+                        </thead>
+                        <tbody>
+                          {customers?.data?.map((customer) => (
+                            <tr key={customer.id}>
+                              <td>{customer.name}</td>
+                              <td>{customer.no_telp}</td>
+                              <td>{customer.address}</td>
+                              <td className="text-center">
+                                <Link
+                                  href={`/apps/customers/${customer.id}/edit`}
+                                  className="btn btn-success btn-sm me-2"
+                                >
+                                  <i className="fa fa-pencil-alt me-1"></i> EDIT
+                                </Link>
+                                <button
+                                  className="btn btn-danger btn-sm"
+                                  onClick={(e) => onDestroy(e, customer.id)}
+                                >
+                                  <i className="fa fa-trash"></i> DELETE
+                                </button>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
                     <Pagination links={customers.links} />
                   </div>
                 </div>

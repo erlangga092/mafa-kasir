@@ -29,7 +29,7 @@ const LayoutApp = ({ children }) => {
             {children}
             <footer className="c-footer">
               <div>
-                <strong>APLIKASI KASIR</strong> &copy; 2022 - SantriKoding.com.
+                <strong>APLIKASI KASIR</strong> &copy; 2022 - Mafa~Tech
               </div>
             </footer>
           </div>

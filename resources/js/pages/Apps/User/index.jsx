@@ -70,50 +70,52 @@ const User = ({ users }) => {
                       onReset={onReset}
                       addLink="/apps/users/create"
                     />
-                    <table className="table table-bordered table-hover">
-                      <thead>
-                        <tr>
-                          <th scope="col">Full Name</th>
-                          <th scope="col">Email Address</th>
-                          <th scope="col">Roles</th>
-                          <th scope="col" style={{ width: "20%" }}>
-                            Actions
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {users?.data?.map((user) => (
-                          <tr key={user.id}>
-                            <td>{user.name}</td>
-                            <td>{user.email}</td>
-                            <td>
-                              {user?.roles?.map((role) => (
-                                <span
-                                  key={role.id}
-                                  className="badge badge-primary shadow border-0 ms-2 mb-2"
-                                >
-                                  {role.name}
-                                </span>
-                              ))}
-                            </td>
-                            <td className="text-center">
-                              <Link
-                                href={`/apps/users/${user.id}/edit`}
-                                className="btn btn-success btn-sm me-2"
-                              >
-                                <i className="fa fa-pencil-alt me-1"></i> EDIT
-                              </Link>
-                              <button
-                                className="btn btn-danger btn-sm"
-                                onClick={(e) => onDestroy(e, user.id)}
-                              >
-                                <i className="fa fa-trash"></i> DELETE
-                              </button>
-                            </td>
+                    <div className="table-responsive">
+                      <table className="table table-bordered table-hover">
+                        <thead>
+                          <tr>
+                            <th scope="col">Full Name</th>
+                            <th scope="col">Email Address</th>
+                            <th scope="col">Roles</th>
+                            <th scope="col" style={{ width: "20%" }}>
+                              Actions
+                            </th>
                           </tr>
-                        ))}
-                      </tbody>
-                    </table>
+                        </thead>
+                        <tbody>
+                          {users?.data?.map((user) => (
+                            <tr key={user.id}>
+                              <td>{user.name}</td>
+                              <td>{user.email}</td>
+                              <td>
+                                {user?.roles?.map((role) => (
+                                  <span
+                                    key={role.id}
+                                    className="badge badge-primary shadow border-0 ms-2 mb-2"
+                                  >
+                                    {role.name}
+                                  </span>
+                                ))}
+                              </td>
+                              <td className="text-center">
+                                <Link
+                                  href={`/apps/users/${user.id}/edit`}
+                                  className="btn btn-success btn-sm me-2"
+                                >
+                                  <i className="fa fa-pencil-alt me-1"></i> EDIT
+                                </Link>
+                                <button
+                                  className="btn btn-danger btn-sm"
+                                  onClick={(e) => onDestroy(e, user.id)}
+                                >
+                                  <i className="fa fa-trash"></i> DELETE
+                                </button>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
                     <Pagination links={users.links} />
                   </div>
                 </div>

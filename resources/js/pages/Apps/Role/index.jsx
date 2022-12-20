@@ -70,50 +70,52 @@ const Role = ({ roles }) => {
                       onReset={onReset}
                       addLink="/apps/roles/create"
                     />
-                    <table className="table table-bordered table-hover">
-                      <thead>
-                        <tr>
-                          <th scope="col">Role Name</th>
-                          <th scope="col" style={{ width: "50%" }}>
-                            Permissions
-                          </th>
-                          <th scope="col" style={{ width: "20%" }}>
-                            Actions
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {roles?.data?.map((role) => (
-                          <tr key={role.id}>
-                            <td>{role.name}</td>
-                            <td>
-                              {role?.permissions?.map((permission) => (
-                                <span
-                                  key={permission.id}
-                                  className="badge badge-primary shadow border-0 ms-2 mb-2"
-                                >
-                                  {permission.name}
-                                </span>
-                              ))}
-                            </td>
-                            <td className="text-center">
-                              <Link
-                                href={`/apps/roles/${role.id}/edit`}
-                                className="btn btn-success btn-sm me-2"
-                              >
-                                <i className="fa fa-pencil-alt me-1"></i> EDIT
-                              </Link>
-                              <button
-                                className="btn btn-danger btn-sm"
-                                onClick={(e) => onDestroy(e, role.id)}
-                              >
-                                <i className="fa fa-trash"></i> DELETE
-                              </button>
-                            </td>
+                    <div className="table-responsive">
+                      <table className="table table-bordered table-hover">
+                        <thead>
+                          <tr>
+                            <th scope="col">Role Name</th>
+                            <th scope="col" style={{ width: "50%" }}>
+                              Permissions
+                            </th>
+                            <th scope="col" style={{ width: "20%" }}>
+                              Actions
+                            </th>
                           </tr>
-                        ))}
-                      </tbody>
-                    </table>
+                        </thead>
+                        <tbody>
+                          {roles?.data?.map((role) => (
+                            <tr key={role.id}>
+                              <td>{role.name}</td>
+                              <td>
+                                {role?.permissions?.map((permission) => (
+                                  <span
+                                    key={permission.id}
+                                    className="badge badge-primary shadow border-0 ms-2 mb-2"
+                                  >
+                                    {permission.name}
+                                  </span>
+                                ))}
+                              </td>
+                              <td className="text-center">
+                                <Link
+                                  href={`/apps/roles/${role.id}/edit`}
+                                  className="btn btn-success btn-sm me-2"
+                                >
+                                  <i className="fa fa-pencil-alt me-1"></i> EDIT
+                                </Link>
+                                <button
+                                  className="btn btn-danger btn-sm"
+                                  onClick={(e) => onDestroy(e, role.id)}
+                                >
+                                  <i className="fa fa-trash"></i> DELETE
+                                </button>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
                     <Pagination links={roles.links} />
                   </div>
                 </div>

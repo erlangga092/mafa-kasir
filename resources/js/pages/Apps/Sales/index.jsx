@@ -151,6 +151,56 @@ const Sales = ({ errors, sales, total }) => {
                             <i className="fa fa-file-excel"></i> PDF
                           </a>
                         </div>
+                        <div className="table-responsive">
+                          <table className="table table-bordered">
+                            <thead>
+                              <tr style={{ backgroundColor: "#e6e6e7" }}>
+                                <th scope="col">Date</th>
+                                <th scope="col">Invoice</th>
+                                <th scope="col">Cashier</th>
+                                <th scope="col">Customer</th>
+                                <th scope="col">Total</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {sales?.data?.map((sale) => (
+                                <tr key={sale.id}>
+                                  <td>{sale.created_at}</td>
+                                  <td className="text-center">
+                                    {sale.invoice}
+                                  </td>
+                                  <td>{sale.cashier.name}</td>
+                                  <td>
+                                    {sale.customer
+                                      ? sale.customer.name
+                                      : "Umum"}
+                                  </td>
+                                  <td className="text-end">
+                                    {formatPrice(sale.grand_total)}
+                                  </td>
+                                </tr>
+                              ))}
+                              <tr>
+                                <td
+                                  colSpan={4}
+                                  className="text-end fw-bold"
+                                  style={{ backgroundColor: "#e6e6e7" }}
+                                >
+                                  TOTAL
+                                </td>
+                                <td
+                                  className="text-end fw-bold"
+                                  style={{ backgroundColor: "#e6e6e7" }}
+                                >
+                                  {formatPrice(total)}
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </>
+                    ) : (
+                      <div className="table-responsive">
                         <table className="table table-bordered">
                           <thead>
                             <tr style={{ backgroundColor: "#e6e6e7" }}>
@@ -162,56 +212,14 @@ const Sales = ({ errors, sales, total }) => {
                             </tr>
                           </thead>
                           <tbody>
-                            {sales?.data?.map((sale) => (
-                              <tr key={sale.id}>
-                                <td>{sale.created_at}</td>
-                                <td className="text-center">{sale.invoice}</td>
-                                <td>{sale.cashier.name}</td>
-                                <td>
-                                  {sale.customer ? sale.customer.name : "Umum"}
-                                </td>
-                                <td className="text-end">
-                                  {formatPrice(sale.grand_total)}
-                                </td>
-                              </tr>
-                            ))}
                             <tr>
-                              <td
-                                colSpan={4}
-                                className="text-end fw-bold"
-                                style={{ backgroundColor: "#e6e6e7" }}
-                              >
-                                TOTAL
-                              </td>
-                              <td
-                                className="text-end fw-bold"
-                                style={{ backgroundColor: "#e6e6e7" }}
-                              >
-                                {formatPrice(total)}
+                              <td colSpan={5} className="text-center">
+                                No Data Found
                               </td>
                             </tr>
                           </tbody>
                         </table>
-                      </>
-                    ) : (
-                      <table className="table table-bordered">
-                        <thead>
-                          <tr style={{ backgroundColor: "#e6e6e7" }}>
-                            <th scope="col">Date</th>
-                            <th scope="col">Invoice</th>
-                            <th scope="col">Cashier</th>
-                            <th scope="col">Customer</th>
-                            <th scope="col">Total</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td colSpan={5} className="text-center">
-                              No Data Found
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                      </div>
                     )}
                     {sales?.data?.length ? (
                       <Pagination links={sales?.links} />

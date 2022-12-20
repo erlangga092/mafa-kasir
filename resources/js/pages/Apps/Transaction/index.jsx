@@ -277,52 +277,54 @@ const Transaction = ({ auth, carts, carts_total, session, customers }) => {
                       </div>
                     </div>
 
-                    <table className="table table-bordered">
-                      <thead>
-                        <tr>
-                          <th scope="col">#</th>
-                          <th scope="col">Product Name</th>
-                          <th scope="col">Price</th>
-                          <th scope="col">Qty</th>
-                          <th scope="col">Sub Totals</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {carts?.map((cart) => (
-                          <tr key={cart.id}>
-                            <td className="text-center">
-                              <button
-                                className="btn btn-danger btn-sm"
-                                onClick={() => destroyCart(cart.id)}
-                              >
-                                <i className="fa fa-trash"></i>
-                              </button>
+                    <div className="table-responsive">
+                      <table className="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Product Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Qty</th>
+                            <th scope="col">Sub Totals</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {carts?.map((cart) => (
+                            <tr key={cart.id}>
+                              <td className="text-center">
+                                <button
+                                  className="btn btn-danger btn-sm"
+                                  onClick={() => destroyCart(cart.id)}
+                                >
+                                  <i className="fa fa-trash"></i>
+                                </button>
+                              </td>
+                              <td>{cart.product.title}</td>
+                              <td>{formatPrice(cart.product.sell_price)}</td>
+                              <td className="text-center">{cart.qty}</td>
+                              <td className="text-end">
+                                {formatPrice(cart.price)}
+                              </td>
+                            </tr>
+                          ))}
+                          <tr>
+                            <td
+                              colSpan={4}
+                              className="text-end fw-bold"
+                              style={{ backgroundColor: "#e6e6e7" }}
+                            >
+                              TOTAL
                             </td>
-                            <td>{cart.product.title}</td>
-                            <td>{formatPrice(cart.product.sell_price)}</td>
-                            <td className="text-center">{cart.qty}</td>
-                            <td className="text-end">
-                              {formatPrice(cart.price)}
+                            <td
+                              className="text-end fw-bold"
+                              style={{ backgroundColor: "#e6e6e7" }}
+                            >
+                              {formatPrice(carts_total)}
                             </td>
                           </tr>
-                        ))}
-                        <tr>
-                          <td
-                            colSpan={4}
-                            className="text-end fw-bold"
-                            style={{ backgroundColor: "#e6e6e7" }}
-                          >
-                            TOTAL
-                          </td>
-                          <td
-                            className="text-end fw-bold"
-                            style={{ backgroundColor: "#e6e6e7" }}
-                          >
-                            {formatPrice(carts_total)}
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+                        </tbody>
+                      </table>
+                    </div>
 
                     <div className="d-flex align-items-end flex-column bd-highlight mb-3">
                       <div className="mt-auto bd-highlight">

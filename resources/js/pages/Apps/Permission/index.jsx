@@ -42,20 +42,22 @@ const Permission = ({ permissions }) => {
                       onSearch={onSearch}
                       onReset={onReset}
                     />
-                    <table className="table table-bordered table-hover">
-                      <thead>
-                        <tr>
-                          <th scope="col">Permission Name</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {permissions?.data?.map((permission) => (
-                          <tr key={permission.id}>
-                            <td>{permission.name}</td>
+                    <div className="table-responsive">
+                      <table className="table table-bordered table-hover">
+                        <thead>
+                          <tr>
+                            <th scope="col">Permission Name</th>
                           </tr>
-                        ))}
-                      </tbody>
-                    </table>
+                        </thead>
+                        <tbody>
+                          {permissions?.data?.map((permission) => (
+                            <tr key={permission.id}>
+                              <td>{permission.name}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
                     <Pagination links={permissions.links} />
                   </div>
                 </div>
